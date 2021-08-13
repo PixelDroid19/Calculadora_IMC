@@ -18,3 +18,8 @@
 .fa-female:hover{
     color:rgba(253, 155, 155, 0.8);
 }
+
+.fa-female,
+.fa-male{
+    cursor:pointer;
+}
