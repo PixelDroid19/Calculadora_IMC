@@ -2,7 +2,8 @@
 const  nameId = document.getElementById('Name'),
        alturaId = document.getElementById('Height'),
        pesoId = document.getElementById('Weight'),
-       Resultado = document.getElementById('result');
+       Resultado = document.getElementById('result'),
+       Notices = document.getElementById('Notices');
 
 const resultado = document.getElementById('resultado'),
       calcular = document.getElementById('calcular'),
@@ -44,9 +45,11 @@ function printStorage(){
 }
 
 function toggleInfo(){
-    if (Name !== '' && altura !== '' && peso !== '') {
-    const boxResult = document.getElementById('boxResult');
-    boxResult.classList.toggle("active");
+    if (Name !== '' && altura !== '' && peso !== '' && i != 0) {
+        const boxResult = document.getElementById('boxResult');
+        boxResult.classList.toggle("active");
+    }else{
+        Notices.innerHTML = '¡¡¡Rellena todos los campos !!!';
     }
 }
 
@@ -67,7 +70,7 @@ function imc() {
         }else if (valorIMC < 35){
             clasificacion = 'con obesidad de grado I.';
         }else if (valorIMC < 40){
-            clasificacion = 'con obesidad grado II';
+            clasificacion =  'con obesidad grado II';
         }else {
             clasificacion = 'con obesidad grado III. ¡¡Precaución!!';
         }
@@ -75,7 +78,7 @@ function imc() {
         Resultado.textContent = `${Name} tu IMC es ${valorIMC} y estas ${clasificacion}`;
         
     }else {
-        resultado.textContent = '¡¡¡Rellena todos los campos !!!';
+        Notices.innerHTML = '¡¡¡Rellena todos los campos !!!';
     }
 
 }
